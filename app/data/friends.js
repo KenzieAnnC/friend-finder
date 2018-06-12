@@ -71,3 +71,4 @@ var friendArray = [
     }
 ]
 
+module.exports = friendsArray;
