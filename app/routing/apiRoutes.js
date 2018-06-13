@@ -29,7 +29,7 @@ app.post('/api/friends', function (request, response) {
             /// get the score difference by taking the absolute value of the resulting number ///
             scoreDiff += Math.abs(friendScore - userScores);
 
-            console.log(scoreDiff);
+            
         });
 
         /// push the difference between scores (scoreDiff) into the score difference array ///
