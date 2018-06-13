@@ -24,13 +24,13 @@ module.exports = function (app) {
         var userScores = userInput.scores;
 
         var matchName = '';
-        var matchImage = '';
+        var matchPic = '';
         var friendScoreDiff = 1000;
 
         for (var i = 0; i < friendsData.length; i++) {
             var scoreDiff = 0;
             for (var j = 0; j < userScores.length; j++) {
-                scoreDiff += Math.abs(friendsData[i].scores[j] - userScores[j]);
+                scoreDiff += Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(userScores[j]));
                 console.log(scoreDiff);
             }
             if (scoreDiff <= friendScoreDiff) {
