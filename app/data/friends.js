@@ -8,13 +8,6 @@ var friendArray = [
         ]
     },
     {
-        name: "Kenzie",
-        photo: "https://farm5.staticflickr.com/4783/38921831320_b978a11abc.jpg",
-        scores: [
-            5, 4, 2, 2, 2, 2, 3, 2, 3, 5
-        ]
-    },
-    {
         name: "Oprah",
         photo: "http://i0.kym-cdn.com/entries/icons/facebook/000/012/809/oprah-free-car.jpg",
         scores: [
