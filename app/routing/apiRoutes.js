@@ -39,7 +39,7 @@ module.exports = function (app) {
                 matchImage = friendsData[i].photo;
             }
 
-            friendsData.push(userData);
+            friendsData.push(userInput);
             response.json({ status: 'OK', matchName: matchName, matchImage: matchImage });
         }
     });
