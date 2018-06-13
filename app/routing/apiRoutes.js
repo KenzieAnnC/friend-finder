@@ -15,8 +15,8 @@ module.exports = function (app) {
 
     });
 
-
-
+    
+    
     /// adding a new friend to the friends array ///
     app.post("/api/friends", function (request, response) {
 
@@ -28,18 +28,13 @@ module.exports = function (app) {
         var friendScoreDiff = 1000;
 
         for (var i = 0; i < friendsData.length; i++) {
-
-            var diffArr = [];
-            for (var j = 0; j < userScores.length; j++) {
-
-                diffArr.push(scoreDiff += Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(userScores[j])));
-            }
             var scoreDiff = 0;
-            scoreDiff = diffArr.reduce((a, b) => a + b, 0);
-            if (scoreDiff < friendScoreDiff) {
-
+            for (var j = 0; j < userScores.length; j++) {
+                scoreDiff += Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(userScores[j]));
+                console.log(scoreDiff);
+            }
+            if (scoreDiff <= friendScoreDiff) {
                 friendScoreDiff = scoreDiff;
-
                 matchName = friendsData[i].name;
                 matchPic = friendsData[i].photo;
             }
@@ -50,5 +45,4 @@ module.exports = function (app) {
     });
 
 };
-
 
