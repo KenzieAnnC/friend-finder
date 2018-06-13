@@ -1,8 +1,15 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var path = require('path');
+
+
+var app = express();
+
 /// bring in the data from the friends array ///
 var friendsData = require('../data/friends.js');
 
 /// get the user data from the friends array and put in a JSON obj ///
-module.exports = function (app) {
+module.exports = function(app) {
 
     app.get('/api/friends', function (request, response) {
         response.json(friendsData);
