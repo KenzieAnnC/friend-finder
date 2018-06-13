@@ -11,7 +11,7 @@ var friendsData = require('../data/friends.js');
 /// get the user data from the friends array and put in a JSON obj ///
 module.exports = function (app) {
     app.get("/api/friends", function (request, response) {
-        res.json(friendsData);
+        response.json(friendsData);
 
     });
 
