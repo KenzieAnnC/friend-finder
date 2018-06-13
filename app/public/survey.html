@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Friend Finder!</title>
-
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome Glyphicons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-
-    <!-- Chosen -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Friend Finder!</title>
+        
+        <!-- Latest compiled and minified CSS & JS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <!-- Font Awesome Glyphicons -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        
+        <!-- Chosen -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+        
+        <!-- <script type="text/javascript" src="../assets/javascript.js"></script> -->
 
 </head>
 
@@ -207,8 +209,67 @@
         <br>
 
         
-           <script type="text/javascript" src="../assets/js.js"></script>
-       
+        <script type="text/javascript">
+            /// Capture the form data ///
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+
+    /// Form validation ///
+    function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function () {
+            if ($(this).val() === "") {
+                isValid = false;
+            }
+        });
+
+        $(".chosen-select").each(function () {
+
+            if ($(this).val() === "") {
+                isValid = false;
+            }
+        });
+        return isValid;
+    }
+
+    if (validateForm()) {
+        /// Create an object for the user"s data ///
+        var userData = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+
+        /// AJAX post the data to the friends API. ///
+        $.post("/api/friends", userData, function (data) {
+
+            /// get ajax response and show the best match name and pic ///
+            $("#match-name").text(data.name);
+            $("#match-img").attr("src", data.photo);
+
+            console.log(userData);
+
+            /// Show the modal with the best match ///
+            $("#results-modal").modal("toggle");
+
+        });
+    } else {
+        alert("Please fill out all fields before submitting!");
+    }
+});
+
+</script>
 
 </body>
 
