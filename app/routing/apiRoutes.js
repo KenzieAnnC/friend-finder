@@ -36,7 +36,7 @@ module.exports = function (app) {
             if (scoreDiff < friendScoreDiff) {
                 friendScoreDiff = scoreDiff;
                 matchName = friendsData[i].name;
-                matchImage = friendsData[i].photo;
+                matchPic = friendsData[i].photo;
             }
 
             friendsData.push(userInput);

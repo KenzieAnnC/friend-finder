@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
-
+    
 
 </head>
 
@@ -271,16 +271,23 @@
                             $("#q10").val()
                         ]
                     };
+
+                    /// AJAX post the data to the friends API. ///
+                    $.post("/api/friends", userData).then (function (data) {
+
+                        /// get ajax response and show the best match name and pic ///
+                        $("#match-name").text(data.matchName);
+                        $("#match-img").attr("src", data.matchPic);
+
+                        console.log(data);
+
+                        /// Show the modal with the best match ///
+                        $("#results-modal").modal("toggle");
+
+                    });
+                } else {
+                    alert("Please fill out all fields before submitting!");
                 }
-
-                $.post("api/friends", userData).then(function (data) {
-
-                    $('#matchName').html(data.matchName);
-                    $("#matchImage").attr("src", data.matchImage);
-                    $('#resultsModal').modal(open);
-                });
-
-
             });
 
         </script>
@@ -288,4 +295,3 @@
 </body>
 
 </html>
-//
