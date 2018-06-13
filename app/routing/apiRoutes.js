@@ -31,10 +31,10 @@ app.post('/api/friends', function (request, response) {
         var scoreDiff = 0;
         obj.scores.forEach((item, index) => {
             var friendScore = parseInt(item);
-            userScores = parseInt(userScores[index]);
+            var userScore = parseInt(request.body.scores[index]);
 
             /// get the score difference by taking the absolute value of the resulting number ///
-            scoreDiff += Math.abs(friendScore - userScores);
+            scoreDiff += Math.abs(friendScore - userScore);
 
             
         });
