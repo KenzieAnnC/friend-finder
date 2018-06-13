@@ -1,17 +1,17 @@
 
 var friendArray = [
     {
-        name: "Kenzie",
-        photo: "https://farm5.staticflickr.com/4783/38921831320_b978a11abc.jpg",
-        scores: [
-            5, 4, 2, 2, 2, 2, 3, 2, 3, 5
-        ]
-    },
-    {
         name: "Nicholas",
         photo: "https://s.aolcdn.com/hss/storage/midas/627f1d890718ff2c58318a280145a153/203216448/nicholas-cage-con-air.jpg",
         scores: [
             5, 5, 1, 3, 1, 5, 5, 1, 1, 2
+        ]
+    },
+    {
+        name: "Kenzie",
+        photo: "https://farm5.staticflickr.com/4783/38921831320_b978a11abc.jpg",
+        scores: [
+            5, 4, 2, 2, 2, 2, 3, 2, 3, 5
         ]
     },
     {
@@ -58,7 +58,7 @@ var friendArray = [
     },
     {
         name: "Spock",
-        photo: "http://www.startrek.com/uploads/assets/db_articles/6ee08d45f7a94d4c6fda9ee84833054a687ddf77.jpg", 
+        photo: "http://www.startrek.com/uploads/assets/db_articles/6ee08d45f7a94d4c6fda9ee84833054a687ddf77.jpg",
         scores: [
             2, 5, 5, 4, 5, 5, 5, 5, 2, 3
         ]
