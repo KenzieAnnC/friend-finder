@@ -33,7 +33,7 @@ module.exports = function (app) {
                 scoreDiff += Math.abs(friendsData[i].scores[j] - userScores[j]);
                 console.log(scoreDiff);
             }
-            if (scoreDiff < friendScoreDiff) {
+            if (scoreDiff <= friendScoreDiff) {
                 friendScoreDiff = scoreDiff;
                 matchName = friendsData[i].name;
                 matchPic = friendsData[i].photo;
