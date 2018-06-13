@@ -12,15 +12,11 @@ module.exports = function (app) {
 /// adding a new friend to the friends array ///
 app.post('/api/friends', function (request, response) {
 
-/// users new best friend match empty obj ///
-    var bestMatch = {
-        name: "",
-        photo: "",
-        scoreDiff: 1000
-    };
-
+/// extract user's input scores ///
     var userInput = request.body;
     var userScores = userInput.scores;
 
     
+
+
 })
